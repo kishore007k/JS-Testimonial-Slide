@@ -25,8 +25,7 @@ contents = [{
   }
 ]
 
-// console.log(contents[0].quote);
-
+// Declarations
 const customerContainer = document.querySelector('.img-container');
 const customerName = document.querySelector('.customer-name');
 const customerQuote = document.querySelector('.customer-quote');
@@ -40,32 +39,32 @@ const leftBtn = document.querySelector('.left-btn');
 rightBtn.addEventListener('click', nextContent);
 leftBtn.addEventListener('click', prevContent);
 
-// function
+// functions
 let counter = 0;
 
 function nextContent() {
   if (counter < contents.length - 1) {
     counter++;
-    console.log(counter);
     carsoul();
-    imageChange();
+  } else {
+    counter = 0;
+    carsoul();
   }
 }
 
 function prevContent() {
   if (counter > 0) {
     counter--;
-    console.log(counter);
     carsoul();
-    imageChange();
+  } else {
+    counter = contents.length - 1;
+    carsoul();
   }
 }
+
 
 function carsoul() {
   customerName.innerText = `${contents[counter].author}`;
   customerQuote.innerText = `${contents[counter].quote}`;
-};
-
-function imageChange() {
   customerContainer.innerHTML = `<img src="/img/${contents[counter].image}.jpg" alt="${contents[counter].image}" class="customer-img">`;
 };
